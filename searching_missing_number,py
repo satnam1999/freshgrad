@@ -1,0 +1,24 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Jan  4 10:05:46 2020
+
+@author: abcd
+"""
+
+n=int(input())
+lst=list(map(int,input().split()))
+diff=int((lst[n-1]-lst[0])/n)
+l=0
+h=n-1
+mid=int((l+h)/2)
+
+while(l<h):
+  if lst[mid]-lst[l]>lst[h]-lst[mid]:
+    h=mid
+  elif lst[h]-lst[l]==2*diff:
+    print(lst[l]+diff)
+    break
+  else:
+    l=mid
+  mid=int((l+h)/2)
