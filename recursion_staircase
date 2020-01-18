@@ -1,0 +1,22 @@
+def fibonacci(n):
+    r = [-1]*(n + 1)
+    curr=0
+    return fibonacci_helper(curr,n, r)
+ 
+def fibonacci_helper(curr,n, r):
+    if curr>n:
+      return 0
+    if curr==n:
+      return 1
+    if r[curr]!=-1:
+      return r[curr]
+    q = fibonacci_helper(curr+1,n,r) + fibonacci_helper(curr+2,n,r)
+    r[curr] = q
+ 
+    return q
+ 
+ 
+n = int(input(''))
+curr=0
+ans = fibonacci(n)
+print(ans)
