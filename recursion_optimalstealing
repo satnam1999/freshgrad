@@ -1,0 +1,13 @@
+def max_steal(lst,n,i):
+  if i>=n:
+    return 0
+  return max_value(lst[i]+max_steal(lst,n,i+2),max_steal(lst,n,i+1))
+def max_value(x,y):
+  if x>y:
+    return x
+  return y
+
+n=int(input())
+lst=list(map(int,input().split()))
+i=0
+print(max_steal(lst,n,i))
