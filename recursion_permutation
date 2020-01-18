@@ -1,0 +1,24 @@
+from itertools import permutations
+
+#lst1=list(permutations(s))
+#for i in lst1:
+ # print(''.join(i))
+def permute(s,n,selected,used,index):
+  if index==n:
+    for i in range(n):
+      print(selected[i],end="")
+    print()
+  for i in range(n):
+    if used[i]==1:
+      continue
+    used[i]=1
+    selected[index]=s[i]
+    permute(s,n,selected,used,index+1)
+    used[i]=0
+s=list(input())
+s.sort()
+n=len(s)
+selected=[0]*(n)
+used=[0]*(n)
+index=0
+permute(s,n,selected,used,index)
